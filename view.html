@@ -1,0 +1,47 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>View Res</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+  <p>View all reservations</p>
+  <div id="displayres">
+
+  </div>
+
+  <div id="onething">
+
+  </div>
+
+
+
+
+
+    <script type="text/javascript">
+  $(document).ready(function() {
+      $.get("/api/view/", function (data) {
+        console.log("data: " + data);
+        for (var i = 0; i < data.length; i++) {
+                    $("#displayres").append(i + 1);
+                    $("#displayres").append(data[i].name);
+                    $("#displayres").append(data[i].phone);
+                    $("#displayres").append(data[i].email);
+                    $("#displayres").append(data[i].uniqueid)
+                }
+        
+      });
+  });
+
+    </script>
+  </body>
+
+  </html>
